@@ -36,7 +36,24 @@
   "libVersion": "2.25.1",
   "appid": "wxed6124ea1c652938",
   "projectname": "黑马",
-  "condition": {},
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": []
+    }
+  },
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2

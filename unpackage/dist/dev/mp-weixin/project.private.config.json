@@ -10,7 +10,14 @@
       "list": [
         {
           "name": "",
-          "pathName": "pages/index/index",
+          "pathName": "pages/home/home",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/cate/cate",
           "query": "",
           "launchMode": "default",
           "scene": null

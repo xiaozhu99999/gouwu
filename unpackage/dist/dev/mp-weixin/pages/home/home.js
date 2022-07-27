@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/home/home"],{
-
-/***/ 13:
-=======
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["pages/home/home"],[
 /* 0 */,
 /* 1 */,
@@ -18,7 +13,6 @@
 /* 11 */,
 /* 12 */,
 /* 13 */
->>>>>>> checkout
 /*!*******************************************************************************************!*\
   !*** C:/Users/xin/Desktop/小程序代码/uni-shop/uni-shop/main.js?{"page":"pages%2Fhome%2Fhome"} ***!
   \*******************************************************************************************/
@@ -35,25 +29,11 @@ wx.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;createPage(_home.defa
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["createPage"]))
 
 /***/ }),
-<<<<<<< HEAD
-
-/***/ 14:
-=======
 /* 14 */
->>>>>>> checkout
 /*!************************************************************************!*\
   !*** C:/Users/xin/Desktop/小程序代码/uni-shop/uni-shop/pages/home/home.vue ***!
   \************************************************************************/
 /*! no static exports found */
-<<<<<<< HEAD
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\xin\\Desktop\\小程序代码\\uni-shop\\uni-shop\\pages\\home\\home.vue'");
-
-/***/ })
-
-},[[13,"common/runtime","common/vendor"]]]);
-=======
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -123,10 +103,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
-var render = function () {}
-var staticRenderFns = []
-var recyclableRender
 var components
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+}
+var recyclableRender = false
+var staticRenderFns = []
+render._withStripped = true
 
 
 
@@ -287,5 +272,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ })
 ],[[13,"common/runtime","common/vendor"]]]);
->>>>>>> checkout
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/pages/home/home.js.map
