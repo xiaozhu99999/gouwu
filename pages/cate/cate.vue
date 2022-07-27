@@ -1,8 +1,12 @@
 <template>
 	<view>
+		
+		<view class="search-cate">
+			<my-search @click="gotoSearch"></my-search>
+		</view>
+		
 		<view class="scroll-view-container">
-
-			<!-- 左侧的滚动区域 -->
+              	<!-- 左侧的滚动区域 -->
 			<scroll-view class="left-scroll-view" scroll-y="true" :style="{height: wh +'px'}">
 				<block v-for="(item,index) in cateList" :key="index">
 					<view :class="['left-scroll-item',index === active ? 'active' : '']"
@@ -81,6 +85,11 @@
 				uni.navigateTo({
 					url:'/subpkg/goods_list/goods_list?cid=' + item3.cat_id
 				})
+			},
+			gotoSearch() {
+				uni.navigateTo({
+					url:'/subpkg/search/search'
+				})
 			}
 		}
 	}
@@ -143,5 +152,11 @@
 			}
 		}
 	}
-
+.search-cate{
+	//吸顶效果
+	position: sticky;
+	top: 0;
+	// 提高层级
+	z-index: 999;
+}
 </style>

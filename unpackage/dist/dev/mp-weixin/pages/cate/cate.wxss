@@ -54,4 +54,10 @@
   font-size: 12px;
   text-align: center;
 }
+.search-cate {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
 

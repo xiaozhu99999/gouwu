@@ -29,4 +29,10 @@ swiper image {
 .fool-img-box {
   display: flex;
 }
+.search-box {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
 

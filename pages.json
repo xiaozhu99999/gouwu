@@ -49,13 +49,22 @@
                     "path" : "goods_detail/goods_detail",
                     "style" :                                                                         
                 {
-                    // "navigationBarTitleText": "",
-                    // "enablePullDownRefresh": false
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
                 }
                 
                 }
                 ,{
                     "path" : "goods_list/goods_list",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "search/search",
                     "style" :                                                                                    
                 {
                     "navigationBarTitleText": "",
