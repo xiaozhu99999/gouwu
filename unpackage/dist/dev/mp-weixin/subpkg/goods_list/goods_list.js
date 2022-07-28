@@ -93,6 +93,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    myGoods: function() {
+      return __webpack_require__.e(/*! import() | components/my-goods/my-goods */ "components/my-goods/my-goods").then(__webpack_require__.bind(null, /*! @/components/my-goods/my-goods.vue */ 86))
+    }
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -130,7 +153,11 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 19));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} //
+//
+//
+//
+//
 //
 //
 //
@@ -139,10 +166,76 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var _default =
 {
   data: function data() {
-    return {};
+    return {
+      //请求参数对象
+      queryObj: {
+        //查询关键词	
+        query: '',
+        // 商品分类Id
+        cid: '',
+        // 页码值
+        pagenum: 1,
+        // 每页显示多少条数据
+        pagesize: 10 },
 
+      //商品列表的数据
+      goodsList: [],
+      //总数量，用来实现分页
+      total: 0,
+      //是否在请求数据
+      isLoading: false };
 
+  },
+  methods: {
+    // 获取商品列表数据的方法
+    getGoodsList: function getGoodsList(cd) {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _yield$uni$$http$get, res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                _this.isLoading = true; //开启节流阀
+                _context.next = 3;return uni.$http.get('/goods/search', _this.queryObj);case 3:_yield$uni$$http$get = _context.sent;res = _yield$uni$$http$get.data;if (!(
+                res.meta.status !== 200)) {_context.next = 7;break;}return _context.abrupt("return", uni.$showMsg);case 7:
+
+                //关闭节流阀
+                _this.isLoading = false;
+                // 只要数据请求完毕，就立即按需调用 cb 回调函数
+                cd && cd();
+                // 新旧数据拼接
+                _this.goodsList = [].concat(_toConsumableArray(_this.goodsList), _toConsumableArray(res.message.goods));
+                _this.total = res.message.total;case 11:case "end":return _context.stop();}}}, _callee);}))();
+    },
+    //下拉触底事件
+    onReachBottom: function onReachBottom() {
+      if (this.queryObj.pagenum * this.queryObj.pagesize >= this.total) return uni.$showMsg('数据加载完毕！');
+      if (this.isLoading) return;
+      //让页面数子增加 1
+      this.queryObj.pagenum += 1;
+      // 调用获取商品列表数据的方法
+      this.getGoodsList();
+    },
+    //下拉刷新
+    onPullDownRefresh: function onPullDownRefresh() {
+      //将数据重置
+      this.queryObj.pagenum = 1;
+      this.total = 0;
+      this.isLoading = false;
+      this.goodsList = [];
+
+      //重新发起请求
+      this.getGoodsList(function () {return uni.stopPullDownRefresh();});
+    },
+    //点击跳转到详情页的事件
+    gotoDetail: function gotoDetail(item) {
+      uni.navigateTo({
+        url: '/subpkg/goods_detail/goods_detail?goods_id' + item.goods_id });
+
+    } },
+
+  onLoad: function onLoad(options) {
+    // 将页面参数转存到 this.queryObj 对象中
+    this.queryObj.query = options.query || '';
+    this.queryObj.cid = options.cid || '';
+    //定义获取商品列表数据的方法
+    this.getGoodsList();
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 
