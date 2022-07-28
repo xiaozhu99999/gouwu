@@ -20,7 +20,8 @@ wx.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;
 uni.$http = _requestMiniprogram.$http;
 
 //请求的根路径
-_requestMiniprogram.$http.baseUrl = 'https://www.uinav.com/api/public/v1';
+// $http.baseUrl = 'https://www.uinav.com/api/public/v1'
+_requestMiniprogram.$http.baseUrl = 'https://api-hmugo-web.itheima.net/api/public/v1';
 
 //请求拦截器
 _requestMiniprogram.$http.beforeRequest = function (options) {

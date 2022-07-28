@@ -68,8 +68,9 @@
 			},
 			//点击跳转到详情页的事件
 			gotoDetail(item) {
+				// console.log(item.goods_id)
 				uni.navigateTo({
-					url: '/subpkg/goods_detail/goods_detail?goods_id' + item.goods_id
+					url: '/subpkg/goods_detail/goods_detail?goods_id=' + item.goods_id
 				})
 			}
 		},
