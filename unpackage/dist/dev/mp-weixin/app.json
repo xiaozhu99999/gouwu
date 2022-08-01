@@ -17,8 +17,8 @@
     }
   ],
   "window": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "黑马优购",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "优享购物",
     "navigationBarBackgroundColor": "#C00000",
     "backgroundColor": "#F8F8F8"
   },

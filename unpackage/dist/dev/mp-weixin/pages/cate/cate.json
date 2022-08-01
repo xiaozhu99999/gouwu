@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "优享购物",
   "enablePullDownRefresh": false,
   "usingComponents": {
     "my-search": "/components/my-search/my-search"
